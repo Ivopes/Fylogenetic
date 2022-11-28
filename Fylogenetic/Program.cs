@@ -21,6 +21,8 @@ while (queue.Count > 0)
         queue.Enqueue(curr.child2);
     }
 }
+Console.WriteLine($"Score: {score}");
+
 
  UPGMA.Calculate(null);
 
