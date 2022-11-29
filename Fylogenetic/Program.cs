@@ -21,11 +21,33 @@ while (queue.Count > 0)
         queue.Enqueue(curr.child2);
     }
 }
-Console.WriteLine($"Score: {score}");
+Console.WriteLine($"Score: {score}\n\n");
 
+var leafs = new List<Leaf>
+            {
+                new Leaf { name = "A", Index = 0},
+                new Leaf { name = "B", Index = 1},
+                new Leaf { name = "C", Index = 2},
+                new Leaf { name = "D", Index = 3},
+                new Leaf { name = "E", Index = 4}
+            };
 
- UPGMA.Calculate(null);
+var rootLeaf = UPGMA.Calculate(leafs);
 
+queue.Enqueue(rootLeaf);
+while (queue.Count > 0)
+{
+    var curr = queue.Dequeue();
+    Console.WriteLine($"{curr.name} Heigh: {curr.heigh}");
+    if (curr.child1 is not null)
+    {
+        queue.Enqueue(curr.child1);
+    }
+    if (curr.child2 is not null)
+    {
+        queue.Enqueue(curr.child2);
+    }
+}
 
 static Tree CreateTree()
 {

@@ -19,5 +19,7 @@ namespace Fylogenetic
         public int child2Length;
         public HashSet<char> Label;
         public int heigh;
+        public int Index;
+        public List<int> childIndexes;
     }
 }
